@@ -10,7 +10,7 @@ Munros.prototype.getData = function () {
   const request = new RequestHelper(url);
   const myPromise = request.get();
   myPromise.then((data) => {
-    this.data = data.message;
+    this.data = data;
     PubSub.publish('Munros:munro-data-loaded', this.data);
   });
   myPromise.catch((err) => {
